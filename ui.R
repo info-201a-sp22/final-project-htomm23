@@ -78,11 +78,11 @@ second_tab <- tabPanel(
 # Third Widget
 sidebar_panel_widget3 <- sidebarPanel(
   selectInput(
-    inputId = "id",
-    label = "label",
-    choices = climate_df$country,
-    selected = "selected",
-    multiple = TRUE
+    inputId = "third_visual_state",
+    label = "Pick a state to display County SVI",
+    choices = third_visual_df$state,
+    selected = "Washington",
+    multiple = F
   )
 )
 
