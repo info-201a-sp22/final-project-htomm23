@@ -80,7 +80,7 @@ sidebar_panel_widget3 <- sidebarPanel(
   selectInput(
     inputId = "third_visual_state",
     label = "Pick a state to display County SVI",
-    choices = third_visual_df$state,
+    choices = svi$STATE,
     selected = "Washington",
     multiple = F
   )
