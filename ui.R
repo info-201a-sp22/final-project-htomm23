@@ -24,7 +24,7 @@ intro_tab <- tabPanel(
     # markdown file
     includeMarkdown("introduction_text.md"),
     # image of something for *spice*
-    img(src = "image.jpeg", height = 500, style="display: block; margin-left: auto; margin-right: auto;")
+    img(src = "image.png", height = 500, style="display: block; margin-left: auto; margin-right: auto;")
   )
 )
 
@@ -61,7 +61,7 @@ sidebar_panel_widget2 <- sidebarPanel(
   selectInput(
     inputId = "id",
     label = "label",
-    choices = ,
+    choices = svi$COUNTY ,
     selected = "selected",
     multiple = TRUE
   )
@@ -123,7 +123,7 @@ conclusion_tab <- tabPanel(
 # Combines all tabs
 ui <- navbarPage(
   # Select a Theme
-  theme = my_theme,
+ # theme = my_theme,
   # Home page title
   "Social Vulnerability",
   intro_tab,
