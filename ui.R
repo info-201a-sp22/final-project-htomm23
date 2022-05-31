@@ -19,13 +19,13 @@ avg_svi <- svi %>%
 
 #Front page
 intro_tab <- tabPanel(
-"Introduction",
-fluidPage(
-  # markdown file
-  includeMarkdown("introduction_text.md"),
-  # image of something for *spice*
-img(src = "image.jpeg", height = 500, style="display: block; margin-left: auto; margin-right: auto;")
-)
+  "Introduction",
+  fluidPage(
+    # markdown file
+    includeMarkdown("introduction_text.md"),
+    # image of something for *spice*
+    img(src = "image.jpeg", height = 500, style="display: block; margin-left: auto; margin-right: auto;")
+  )
 )
 
 # First visualization page
@@ -115,7 +115,7 @@ conclusion_tab <- tabPanel(
   fluidPage(
     # markdown file
     includeMarkdown("conclusion_text.md")
-)
+  )
 )
 
 
