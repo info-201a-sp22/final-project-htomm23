@@ -2,9 +2,17 @@ library(markdown)
 library(plotly)
 library(bslib)
 library(dplyr)
+library(shiny)
 
 # Load Data
 svi <- read.csv("SVI2018_US_COUNTY.csv", stringsAsFactors = FALSE)
+
+#Data for state average SVIs only
+
+avg_svi <- svi %>%
+  group_by(STATE) %>% 
+  filter(RPL_THEMES != -999) %>% 
+  summarize(avg = mean(RPL_THEMES, na.rm = TRUE))
 
 # Determinine a Color Theme / Load Css Styling
 
@@ -24,11 +32,11 @@ img(src = "image.jpeg", height = 500, style="display: block; margin-left: auto; 
 # Widget for first visual
 sidebar_panel_widget1 <- sidebarPanel(
   selectInput(
-    inputId = "id",
-    label = "label",
-    choices = climate_df$country,
-    selected = "selected",
-    multiple = TRUE
+    inputId = "first_visual_state",
+    label = "Select State to display Average SVI",
+    choices = avg_svi$avg,
+    selected = "Washington",
+    multiple = FALSE
   )
 )
 
@@ -53,7 +61,7 @@ sidebar_panel_widget2 <- sidebarPanel(
   selectInput(
     inputId = "id",
     label = "label",
-    choices = climate_df$country,
+    choices = ,
     selected = "selected",
     multiple = TRUE
   )
