@@ -6,9 +6,23 @@ library(stringr)
 # load data
 
 svi <- read.csv("SVI2018_US_COUNTY.csv", stringsAsFactors = FALSE)
+
+avg_svi <- svi %>%
+  group_by(STATE) %>% 
+  filter(RPL_THEMES != -999) %>% 
+  summarize(avg = mean(RPL_THEMES, na.rm = TRUE))
+
 server <- function(input, output) {
   
   output$first_plot <- renderPlotly({
+    str_to_title(avg_svi$avg)
+    
+    #filter by state
+    states_svi <- avg_svi %>% 
+      filter(avg %in% input$first_visual_state)
+    
+    #bar chart 
+    first_plot <- 
     
     return(first_plot)
     
