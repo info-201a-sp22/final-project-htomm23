@@ -3,11 +3,11 @@ library(plotly)
 library(bslib)
 library(dplyr)
 library(shiny)
-library(stringr)
-# Load Data THE CAPITALIZATION IS CHANGED; (it was messing with the map)
+
+# Load Data
 svi <- read.csv("SVI2018_US_COUNTY.csv", stringsAsFactors = FALSE)
-svi$STATE = str_to_title(svi$STATE)
-#Data for state average SVIs only
+
+#Data for state average SVIs (used for first chart only)
 
 avg_svi <- svi %>%
   group_by(STATE) %>% 
