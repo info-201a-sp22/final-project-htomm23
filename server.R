@@ -20,9 +20,9 @@ server <- function(input, output) {
   
   output$third_plot <- renderPlotly({
     # changing capitalization so R likes it
-    str_to_title(svi$STATE)
+    svi$STATE = str_to_title(svi$STATE)
     # Filtering by chosen state
-    third_visual_df <- svi %>% rename(fips = FIPS) %>% filter(state == input$third_visual_state)
+    third_visual_df <- svi %>% rename(fips = FIPS) %>% filter(STATE == input$third_visual_state)
     # Creating map by chosen state
     third_plot <- plot_usmap("counties", include = c(input$third_visual_state), data = third_visual_df, values = "RPL_THEMES", labels = F) +
       theme(legend.position = "right") +

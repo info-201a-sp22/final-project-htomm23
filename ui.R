@@ -5,7 +5,7 @@ library(dplyr)
 
 # Load Data
 svi <- read.csv("SVI2018_US_COUNTY.csv", stringsAsFactors = FALSE)
-
+svi$STATE = str_to_title(svi$STATE)
 # Determinine a Color Theme / Load Css Styling
 
 
@@ -26,7 +26,7 @@ sidebar_panel_widget1 <- sidebarPanel(
   selectInput(
     inputId = "id",
     label = "label",
-    choices = climate_df$country,
+    choices = svi$COUNTY,
     selected = "selected",
     multiple = TRUE
   )
@@ -51,9 +51,9 @@ first_tab <- tabPanel(
 # Widget for second visual
 sidebar_panel_widget2 <- sidebarPanel(
   selectInput(
-    inputId = "id",
+    inputId = "id2",
     label = "label",
-    choices = climate_df$country,
+    choices = svi$COUNTY,
     selected = "selected",
     multiple = TRUE
   )
@@ -115,7 +115,7 @@ conclusion_tab <- tabPanel(
 # Combines all tabs
 ui <- navbarPage(
   # Select a Theme
-  theme = my_theme,
+ # theme = my_theme,
   # Home page title
   "Social Vulnerability",
   intro_tab,
