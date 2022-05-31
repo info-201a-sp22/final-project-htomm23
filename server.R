@@ -3,6 +3,7 @@ library(plotly)
 library(dplyr)
 library(usmap)
 library(stringr)
+library(shiny)
 # load data
 
 svi <- read.csv("SVI2018_US_COUNTY.csv", stringsAsFactors = FALSE)
@@ -19,10 +20,12 @@ server <- function(input, output) {
     
     #filter by state
     states_svi <- avg_svi %>% 
-      filter(avg %in% input$first_visual_state)
+      filter(STATE == input$first_visual_state)
     
     #bar chart 
-    first_plot <- 
+    
+    first_plot <- ggplot(include = c(input$first_visual_state), data = states_svi, aes(x = STATE, y = avg)) + geom_bar(stat="identity", fill = "green") + 
+      labs(title = "State's Average Social Vulnerability Index (SVI)")
     
     return(first_plot)
     

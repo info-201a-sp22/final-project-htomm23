@@ -54,7 +54,6 @@ first_tab <- tabPanel(
   )
 )
 
-
 # Second visualization page
 # Widget for second visual
 sidebar_panel_widget2 <- sidebarPanel(
@@ -80,7 +79,6 @@ second_tab <- tabPanel(
     main_panel_plot2
   )
 )
-
 
 # Third Visualization Page
 # Third Widget
