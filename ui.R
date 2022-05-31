@@ -2,33 +2,41 @@ library(markdown)
 library(plotly)
 library(bslib)
 library(dplyr)
+library(shiny)
 
 # Load Data
 svi <- read.csv("SVI2018_US_COUNTY.csv", stringsAsFactors = FALSE)
-svi$STATE = str_to_title(svi$STATE)
+
+#Data for state average SVIs only
+
+avg_svi <- svi %>%
+  group_by(STATE) %>% 
+  filter(RPL_THEMES != -999) %>% 
+  summarize(avg = mean(RPL_THEMES, na.rm = TRUE))
+
 # Determinine a Color Theme / Load Css Styling
 
 
 #Front page
 intro_tab <- tabPanel(
-"Introduction",
-fluidPage(
-  # markdown file
-  includeMarkdown("introduction_text.md"),
-  # image of something for *spice*
-img(src = "image.jpeg", height = 500, style="display: block; margin-left: auto; margin-right: auto;")
-)
+  "Introduction",
+  fluidPage(
+    # markdown file
+    includeMarkdown("introduction_text.md"),
+    # image of something for *spice*
+    img(src = "image.jpeg", height = 500, style="display: block; margin-left: auto; margin-right: auto;")
+  )
 )
 
 # First visualization page
 # Widget for first visual
 sidebar_panel_widget1 <- sidebarPanel(
   selectInput(
-    inputId = "id",
-    label = "label",
-    choices = svi$COUNTY,
-    selected = "selected",
-    multiple = TRUE
+    inputId = "first_visual_state",
+    label = "Select State to display Average SVI",
+    choices = avg_svi$avg,
+    selected = "Washington",
+    multiple = FALSE
   )
 )
 
@@ -51,9 +59,9 @@ first_tab <- tabPanel(
 # Widget for second visual
 sidebar_panel_widget2 <- sidebarPanel(
   selectInput(
-    inputId = "id2",
+    inputId = "id",
     label = "label",
-    choices = svi$COUNTY,
+    choices = ,
     selected = "selected",
     multiple = TRUE
   )
@@ -107,7 +115,7 @@ conclusion_tab <- tabPanel(
   fluidPage(
     # markdown file
     includeMarkdown("conclusion_text.md")
-)
+  )
 )
 
 
@@ -115,7 +123,7 @@ conclusion_tab <- tabPanel(
 # Combines all tabs
 ui <- navbarPage(
   # Select a Theme
- # theme = my_theme,
+  theme = my_theme,
   # Home page title
   "Social Vulnerability",
   intro_tab,
