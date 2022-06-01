@@ -8,6 +8,8 @@ library(shiny)
 
 svi <- read.csv("SVI2018_US_COUNTY.csv", stringsAsFactors = FALSE)
 
+svi$STATE = str_to_title(svi$STATE)
+
 avg_svi <- svi %>%
   group_by(STATE) %>% 
   filter(RPL_THEMES != -999) %>% 
@@ -15,19 +17,22 @@ avg_svi <- svi %>%
 
 server <- function(input, output) {
   
-  output$first_plot <- renderPlotly({
-    str_to_title(avg_svi$avg)
+  output$bar_plot <- renderPlotly({
     
     #filter by state
     states_svi <- avg_svi %>% 
-      filter(STATE == input$first_visual_state)
+      filter(STATE %in% input$first_visual_state)
     
     #bar chart 
     
-    first_plot <- ggplot(include = c(input$first_visual_state), data = states_svi, aes(x = STATE, y = avg)) + geom_bar(stat="identity", fill = "green") + 
+    bar_plot <- ggplot(data = states_svi, aes(x = STATE, y = avg)) +
+      
+      geom_bar(stat="identity", fill = "green") + 
+      
       labs(title = "State's Average Social Vulnerability Index (SVI)")
     
-    return(first_plot)
+#display bar chart
+return(bar_plot)
     
   })
   output$second_plot <- renderPlotly({
@@ -37,7 +42,7 @@ server <- function(input, output) {
   
   output$third_plot <- renderPlotly({
     # changing capitalization so R likes it
-    svi$STATE = str_to_title(svi$STATE)
+    # svi$STATE = str_to_title(svi$STATE)
     # Filtering by chosen state
     third_visual_df <- svi %>% rename(fips = FIPS) %>% filter(STATE == input$third_visual_state)
     # Creating map by chosen state

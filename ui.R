@@ -6,13 +6,16 @@ library(shiny)
 library(stringr)
 # Load Data and CHANGED CAPITALIZATION so it looks better formatted and for map
 svi <- read.csv("SVI2018_US_COUNTY.csv", stringsAsFactors = FALSE)
-svi$STATE =str_to_title(svi$STATE)
+
+svi$STATE = str_to_title(svi$STATE)
+
 #Data for state average SVIs (used for first chart only)
 
 avg_svi <- svi %>%
   group_by(STATE) %>% 
   filter(RPL_THEMES != -999) %>% 
   summarize(avg = mean(RPL_THEMES, na.rm = TRUE))
+
 
 # Determinine a Color Theme / Load Css Styling
 
@@ -33,16 +36,16 @@ intro_tab <- tabPanel(
 sidebar_panel_widget1 <- sidebarPanel(
   selectInput(
     inputId = "first_visual_state",
-    label = "Select State to display Average SVI",
-    choices = avg_svi$avg,
+    label = "Select State(s)",
+    choices = avg_svi$STATE,
     selected = "Washington",
-    multiple = FALSE
+    multiple = TRUE
   )
 )
 
 # Display First Plot / Visual
 main_panel_plot1 <- mainPanel(
-  plotlyOutput(outputId = "first_plot"),
+  plotlyOutput(outputId = "bar_plot"),
   includeMarkdown("first_plot_text.md")
 )
 # Create First Tab
