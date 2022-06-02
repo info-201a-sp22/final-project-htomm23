@@ -50,7 +50,7 @@ main_panel_plot1 <- mainPanel(
 )
 # Create First Tab
 first_tab <- tabPanel(
-  "First Visualization",
+  "Comparing State's Vulnerability",
   sidebarLayout(
     sidebar_panel_widget1,
     main_panel_plot1
@@ -88,7 +88,7 @@ main_panel_plot2 <- mainPanel(
 )
 # Create Second Tab
 second_tab <- tabPanel(
-  "Second Visualization",
+  "Plotting Factors of SVI",
   sidebarLayout(
     sidebar_panel_widget2,
     main_panel_plot2
@@ -102,7 +102,7 @@ sidebar_panel_widget3 <- sidebarPanel(
     inputId = "third_visual_state",
     label = "Pick a state to display County SVI",
     choices = svi$STATE,
-    selected = "Washington",
+    selected = "NEW MEXICO",
     multiple = F
   )
 )
@@ -114,7 +114,7 @@ main_panel_plot3 <- mainPanel(
 )
 # Creates third tab
 third_tab <- tabPanel(
-  "Third Visualization",
+  "Map County Visualization",
   sidebarLayout(
     sidebar_panel_widget3,
     main_panel_plot3
@@ -141,7 +141,7 @@ ui <- navbarPage(
   "Social Vulnerability",
   intro_tab,
   first_tab,
-  second_tab,
   third_tab,
+  second_tab,
   conclusion_tab
 )

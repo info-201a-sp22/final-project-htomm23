@@ -3,11 +3,13 @@
 Our group started with the intention to look at social determinants of health and how that affects public health outcomes in the United States. By creating powerful data visualizations we displayed some of the factors that put communities at risk and have started work to convince those who read our research that these considerations are important. We have worked to answer some of the inquiries from our initial intentions, but like any data science path, there are more questions that have come up in our research, and these questions can't be answered by merely one data set. 
 
 ## Takeaways
-1. 
-2. The budget and emergency response experience of a county determines its social vulnerability. Experiences are hard to obtain, so the easiest way to help communities to lower their social vulnerability is to provide more fund and indirectly lowers the below poverty rate, unemployment rate and etc.
-3. 
+1. By comparing on a state to state basis, we have compared the factors that affect the cumulative value of SVI.
 
-The most important insight we have taken away is...
+2. The budget and emergency response experience of a county determines its social vulnerability. Experiences are hard to obtain, so the easiest way to help communities to lower their social vulnerability is to provide more fund and indirectly lowers the below poverty rate, unemployment rate and etc.
+
+3. Lastly, comapring counties within a state really opened our eyes to how much administration on a local level changes SVI outcomes and how vulnerable areas may or may not cluster, in short.
+
+The most important insight we have taken away is that more households in the United States need support and understanding of their unique setbacks. In other words, the biggest takeaway easily that by providing states and counties at the local level more funding, rates of social vulnerability can be handled.
 
 
 ## Implications
