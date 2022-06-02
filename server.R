@@ -70,7 +70,7 @@ output$scatter <- renderPlot({
       geom_point(color = "orange")+
       labs(title = "Relationship between SVI index and selected variable",
            subtitle = "Each point represent an observation of a county",
-           x = "Selected variable rate in %",
+           x = "Selected variable (rate in % and amount in US$)",
            y = "SVI index in %")+
       theme(plot.title = element_text(hjust = 0.5))
     
