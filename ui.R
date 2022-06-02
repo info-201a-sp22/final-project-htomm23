@@ -28,7 +28,8 @@ intro_tab <- tabPanel(
     includeMarkdown("introduction_text.md"),
     # image of something for *spice*
     img(src = "image.png", height = 500, style="display: block; margin-left: auto; margin-right: auto;")
-  )
+  ),
+  p("image: American Community Survey (ACS), 2014-2018 (5-year) data for the above estimates")
 )
 
 # First visualization page
