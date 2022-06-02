@@ -60,21 +60,33 @@ first_tab <- tabPanel(
 # Second visualization page
 # Widget for second visual
 sidebar_panel_widget2 <- sidebarPanel(
-  selectInput(
-    inputId = "id",
-    label = "label",
-    choices = svi$COUNTY ,
-    selected = "selected",
-    multiple = TRUE
+  radioButtons(
+    inputId = "variable_selection",
+    label = "Choose a variable to see its relationship with the SVI",
+    choices = c("Below poverty rate" = "EP_POV",
+                "Unemployment rate" = "EP_UNEMP",
+                "Per capita income" = "EP_PCI",
+                "No highschool diploma rate" = "EP_NOHSDP",
+                "Age 65+ rate" = "EP_AGE65",
+                "Age 17- rate" = "EP_AGE17",
+                "Disabled population rate" = "EP_DISABL",
+                "Single parent rate" = "EP_SNGPNT",
+                "Minority population rate" = "EP_MINRTY",
+                "Insufficient English population rate" = "EP_LIMENG",
+                "10+ unit housing rate" = "EP_MUNIT",
+                "Mobile homes rate" = "EP_MOBILE",
+                "Crowded housing rate" = "EP_CROWD",
+                "No vehicle rate" = "EP_NOVEH",
+                "Group quarter rate" = "EP_GROUPQ"),
+    selected = "EP_POV"
   )
 )
 # Display Second Plot / Visual
 main_panel_plot2 <- mainPanel(
-  plotlyOutput(outputId = "second_plot"),
+  plotOutput(outputId = "scatter"),
   includeMarkdown("second_plot_text.md")
 )
-
-
+# Create Second Tab
 second_tab <- tabPanel(
   "Second Visualization",
   sidebarLayout(

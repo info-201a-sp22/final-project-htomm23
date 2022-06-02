@@ -17,6 +17,8 @@ avg_svi <- svi %>%
 
 server <- function(input, output) {
   
+  # First chart
+  
   output$bar_plot <- renderPlotly({
     
     #filter by state
@@ -35,10 +37,47 @@ server <- function(input, output) {
 return(bar_plot)
     
   })
-  output$second_plot <- renderPlotly({
+  
+  
+  # Second chart  
+  
+    # Clean up data set
+    small_svi <- svi %>%
+      select("EP_POV",
+             "EP_UNEMP",
+             "EP_PCI",
+             "EP_NOHSDP",
+             "EP_AGE65",
+             "EP_AGE17",
+             "EP_DISABL",
+             "EP_SNGPNT",
+             "EP_MINRTY",
+             "EP_LIMENG",
+             "EP_MUNIT",
+             "EP_MOBILE",
+             "EP_CROWD",
+             "EP_NOVEH",
+             "EP_GROUPQ",
+             "RPL_THEMES") %>%
+      filter(RPL_THEMES != -999)
 
-    return(second_plot)
+    # Graph scatter plot 
+output$scatter <- renderPlot({
+  
+    scatter_plot <- ggplot(data = small_svi,
+           mapping = aes_string(x = input$variable_selection,
+                         y = "RPL_THEMES"))+
+      geom_point(color = "orange")+
+      labs(title = "Relationship between SVI index and selected variable",
+           subtitle = "Each point represent an observation of a county",
+           x = "Selected variable rate in %",
+           y = "SVI index in %")+
+      theme(plot.title = element_text(hjust = 0.5))
+    
+    return(scatter_plot)
   })
+  
+  # Third chart
   
   output$third_plot <- renderPlotly({
     # changing capitalization so R likes it
