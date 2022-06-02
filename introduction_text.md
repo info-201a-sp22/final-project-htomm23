@@ -14,7 +14,7 @@ Through networks of health statistics and data collection, we found [this datase
 
 Although the original data set has 123 columns, we'll only use the variables listed below for our analysis and data visualization:
 
-Variable Name | Description
+Variable Name |  Description
 ------ | ------------
 
 RPL_THEMES | The overall SVI percentile ranking of a county

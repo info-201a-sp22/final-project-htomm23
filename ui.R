@@ -17,8 +17,9 @@ avg_svi <- svi %>%
   summarize(avg = mean(RPL_THEMES, na.rm = TRUE))
 
 # Determinine a Color Theme / Load Css Styling
-my_theme <- bs_theme(bootswatch = "minty")
-my_theme <-bs_add_rules(my_theme, sass::sass_file("style_final.scss"))
+my_theme <- bs_theme(bg = "white", fg = "gray", primary = "blue")
+
+# new_theme <-bs_add_rules(my_theme, sass::sass_file("style_final.scss"))
 #Front page
 intro_tab <- tabPanel(
   "Introduction",
