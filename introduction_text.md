@@ -39,7 +39,7 @@ EP_GROUPQ |
 ## *Explore this Site*
 Our group is using the CDC's SVI database to help us understand the trends in social vulnerability. We ask,
 
-1)
+1)Are there any other possible factors that may lead to a difference in social vulnerability between communities?
 
 2) What are the correlations between the 15 proposed variables and the SVI? Are certain factors more likely to increase a community's social vulnerability?
 
