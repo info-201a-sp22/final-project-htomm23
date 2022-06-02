@@ -16,10 +16,9 @@ avg_svi <- svi %>%
   filter(RPL_THEMES != -999) %>% 
   summarize(avg = mean(RPL_THEMES, na.rm = TRUE))
 
-
 # Determinine a Color Theme / Load Css Styling
-
-
+my_theme <- bs_theme(bootswatch = "minty")
+# my_theme <-bs_add_rules(my_theme, sass::sass_file("style_final_project.css"))
 #Front page
 intro_tab <- tabPanel(
   "Introduction",
@@ -136,7 +135,7 @@ conclusion_tab <- tabPanel(
 # Combines all tabs
 ui <- navbarPage(
   # Select a Theme
- # theme = my_theme,
+  theme = my_theme,
   # Home page title
   "Social Vulnerability",
   intro_tab,
