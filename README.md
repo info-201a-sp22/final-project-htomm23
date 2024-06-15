@@ -1,5 +1,4 @@
-# Title of Your Final Project Here 
-## INFO 201 "Foundational Skills for Data Science" — Spring 2022
+# INFO 201 "Foundational Skills for Data Science" — Spring 2022
 
 Authors: Sophia Pham, Tommy Ha, Cherry Chen, Madelyn Wright
 
