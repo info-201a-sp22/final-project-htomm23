@@ -5,11 +5,6 @@ Authors: Sophia Pham, Tommy Ha, Cherry Chen, Madelyn Wright
 
 Link: [Link to your Shiny App here](https://mmw45.shinyapps.io/final-project-AH2/)
 
-Please create the necessary files for your multi-page Shiny app in this GitHub repository. Consult the Canvas assignment for more details. Be sure to publish your app on Shinyapps.io.
-
-When you are finished, please add the text from your introductory and concluding pages below. You might want to use this GitHub repository as part of your digital portfolio, so you want this README.md to offer a brief description of the project and key takeaways.
-
-Feel free to delete these instructions for your final README.md file and to make your GitHub repository public if you would like others to be able to see it. 
 
 # Introduction
 Recently, social vulnerability has been at the forefront in the world of public health. As the global pandemic situation getting repeatably worse, we are motivated to find the reasons why some of the communities were less affected while the overall country was facing the same issue. Knowing the characteristics of these communities allows us to help vulnerable communities improve their population health.
